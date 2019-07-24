@@ -22,6 +22,30 @@ bbr.sh
 
 - Description: Auto install latest kernel for TCP BBR
 - Intro: https://teddysun.com/489.html
+我的环境：CentOS
+ 
+ 
+1、下载、授权、执行安装
+ 
+$ wget --no-check-certificate https://github.com/feinubin/across/raw/master/bbr.sh
+$ chmod +x bbr.sh
+$ bash bbr.sh
+ 
+ 
+2、安装好后重启linux
+ 
+$ reboot
+ 
+ 
+3、检验
+ 
+$ sysctl net.ipv4.tcp_available_congestion_control
+ 
+解释：返回 net.ipv4.tcp_available_congestion_control = cubic reno bbr 说明BBR已完成安装。
+ 
+$ lsmod | grep bbr
+解释：返回值有 tcp_bbr 说明BBR已启动。
+
 
 kms.sh
 ======
